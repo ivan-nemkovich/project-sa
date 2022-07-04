@@ -4,7 +4,7 @@ metadata:
   name: {{ include "wp_project.fullname" . }}
   labels:
     app: {{ include "wp_project.fullname" . }}
-    tier: {{ Values.tier }}
+    tier: {{ .Values.tier }}
 spec:
   type: {{ .Values.service.type }}
   ports:

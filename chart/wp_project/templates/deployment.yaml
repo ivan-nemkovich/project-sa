@@ -5,7 +5,7 @@ metadata:
   name: {{ include "wp_project.fullname" . }}-depl
   labels:
     app: {{ include "wp_project.fullname" . }}
-    tier: {{ Values.tier }}
+    tier: {{ .Values.tier }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -13,14 +13,14 @@ spec:
   selector:
     matchLabels:
       app: {{ include "wp_project.fullname" . }}
-      tier: {{ Values.tier }}
+      tier: {{ .Values.tier }}
   strategy:
     type: Recreate 
   template:
     metadata:
       labels:
         app: {{ include "wp_project.fullname" . }}
-        tier: {{ Values.tier }}
+        tier: {{ .Values.tier }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
@@ -38,6 +38,6 @@ spec:
           volumeMounts:
             {{- toYaml .Values.volumeMounts | nindent 12 }}
       volumes:
-        - name: {{ .Values.volumeMounts.name }}
+        - name: wordpress-persistent-storage
           persistentVolumeClaim:
             claimName: {{ include "wp_project.fullname" . }}-pvc

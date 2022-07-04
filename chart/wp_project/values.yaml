@@ -10,8 +10,8 @@ image:
 tier: frontend
 
 imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: "wordpress"
+fullnameOverride: "wordpress"
 
 service:
   type: ClusterIP
