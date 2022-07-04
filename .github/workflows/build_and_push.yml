@@ -27,4 +27,4 @@ jobs:
         with:
           context: ./image
           push: true
-          tags: ghcr.io/ivan-nemkovich/docker_build:latest
+          tags: ghcr.io/ivan-nemkovich/wp_project:latest,ghcr.io/ivan-nemkovich/wp_project:0.5.9.3 
