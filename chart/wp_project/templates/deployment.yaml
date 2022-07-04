@@ -1,0 +1,43 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "wp_project.fullname" . }}-depl
+  labels:
+    app: {{ include "wp_project.fullname" . }}
+    tier: {{ Values.tier }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      app: {{ include "wp_project.fullname" . }}
+      tier: {{ Values.tier }}
+  strategy:
+    type: Recreate 
+  template:
+    metadata:
+      labels:
+        app: {{ include "wp_project.fullname" . }}
+        tier: {{ Values.tier }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          env:
+            - name: WORDPRESS_DB_HOST
+              value: wordpress-mysql
+            - name: WORDPRESS_DB_USER
+              value: root
+            - name: WORDPRESS_DB_PASSWORD
+              value: wordpress
+          ports:
+            - name: {{ .Chart.Name }}
+              containerPort: 80
+          volumeMounts:
+            {{- toYaml .Values.volumeMounts | nindent 12 }}
+      volumes:
+        - name: {{ .Values.volumeMounts.name }}
+          persistentVolumeClaim:
+            claimName: {{ include "wp_project.fullname" . }}-pvc
