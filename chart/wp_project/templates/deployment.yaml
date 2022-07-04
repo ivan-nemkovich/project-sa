@@ -23,7 +23,7 @@ spec:
         tier: {{ .Values.tier }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ include "wp_project.fullname" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           env:
             - name: WORDPRESS_DB_HOST
@@ -33,7 +33,7 @@ spec:
             - name: WORDPRESS_DB_PASSWORD
               value: wordpress
           ports:
-            - name: {{ .Chart.Name }}
+            - name: {{ include "wp_project.fullname" . }}
               containerPort: 80
           volumeMounts:
             {{- toYaml .Values.volumeMounts | nindent 12 }}
