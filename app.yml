@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-app
+project: default
+source:
+  repoURL: 'https://ivan-nemkovich.github.io/project-sa/'
+  targetRevision: 0.0.2
+  chart: wp_project
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: project
+syncPolicy:
+  automated:
+    prune: true
