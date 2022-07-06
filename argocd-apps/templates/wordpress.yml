@@ -3,14 +3,15 @@ kind: Application
 metadata:
   name: wordpress
   namespace: argocd
-project: default
-source:
-  repoURL: 'https://ivan-nemkovich.github.io/project-sa/'
-  targetRevision: 0.0.2
-  chart: wp_project
-destination:
-  server: 'https://kubernetes.default.svc'
-  namespace: project
-syncPolicy:
-  automated:
-    prune: true
+spec:
+  project: default
+  source:
+    repoURL: 'https://ivan-nemkovich.github.io/project-sa/'
+    targetRevision: 0.0.2
+    chart: wp_project
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: project
+  syncPolicy:
+    automated:
+      prune: true
