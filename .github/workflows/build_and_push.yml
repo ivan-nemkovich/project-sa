@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - "image"
+    tags:
+      - v**
 jobs:
   push_to_registries:
     name: Push Docker image
@@ -12,6 +14,13 @@ jobs:
       packages: write
       contents: read
     steps:
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
+        with:
+        # Optionally strip `v` prefix
+          strip_v: true
+
       - name: Check out the repo
         uses: actions/checkout@v2
 
@@ -27,4 +36,4 @@ jobs:
         with:
           context: ./image
           push: true
-          tags: ghcr.io/ivan-nemkovich/wp_project:latest,ghcr.io/ivan-nemkovich/wp_project:0.6 
+          tags: ghcr.io/ivan-nemkovich/wp_project:latest,ghcr.io/ivan-nemkovich/wp_project:${{steps.tag.outputs.tag}} 
