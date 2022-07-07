@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://ivan-nemkovich.github.io/project-sa/'
-    targetRevision: 6.0
+    targetRevision: 6
     chart: wp_project
   destination:
     server: 'https://kubernetes.default.svc'
