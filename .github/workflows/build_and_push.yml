@@ -23,7 +23,8 @@ jobs:
 
       - name: Check out the repo
         uses: actions/checkout@v2.4.2
-     #   with:
+        with:
+          fetch-depth: 0
      #     token: ${{ secrets.CR_TOKEN }}
 
      # - name: Log in to the Container registry
