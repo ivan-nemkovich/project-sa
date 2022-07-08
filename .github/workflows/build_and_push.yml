@@ -47,7 +47,9 @@ jobs:
       
       - name: Helm Package
         run: |
-          helm package chart/wp_project --version=${{ steps.tag.outputs.tag }} --app-version=${{ steps.tag.outputs.tag }}
+          cd chart
+          helm package wp_project --version="${{ steps.tag.outputs.tag }}" --app-version="${{ steps.tag.outputs.tag }}"
+          cd ..
           helm repo index --url https://ivan-nemkovich.github.io/project-sa/ --merge index.yaml .
 
       - name: Commit and push changes
