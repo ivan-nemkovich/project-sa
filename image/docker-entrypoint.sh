@@ -25,7 +25,7 @@ if [[ "$1" == apache2* ]] || [ "$1" = 'php-fpm' ]; then
 		group="$gid"
 	fi
 
-	if [ ! -e index.php ] && [ ! -e wp-includes/version.php ]; then
+	#if [ ! -e index.php ] && [ ! -e wp-includes/version.php ]; then
 		# if the directory exists and WordPress doesn't appear to be installed AND the permissions of it are root:root, let's chown it (likely a Docker-created directory)
 		if [ "$uid" = '0' ] && [ "$(stat -c '%u:%g' .)" = '0:0' ]; then
 			chown "$user:$group" .
@@ -58,14 +58,14 @@ if [[ "$1" == apache2* ]] || [ "$1" = 'php-fpm' ]; then
 			contentPath="${contentPath%/}"
 			[ -e "$contentPath" ] || continue
 			contentPath="${contentPath#/usr/src/wordpress/}" # "wp-content/plugins/akismet", etc.
-			if [ -e "$PWD/$contentPath" ]; then
-				echo >&2 "WARNING: '$PWD/$contentPath' exists! (not copying the WordPress version)"
-				sourceTarArgs+=( --exclude "./$contentPath" )
-			fi
+			#if [ -e "$PWD/$contentPath" ]; then
+			#	echo >&2 "WARNING: '$PWD/$contentPath' exists! (not copying the WordPress version)"
+			#	sourceTarArgs+=( --exclude "./$contentPath" )
+			#fi
 		done
 		tar "${sourceTarArgs[@]}" . | tar "${targetTarArgs[@]}"
 		echo >&2 "Complete! WordPress has been successfully copied to $PWD"
-	fi
+	#fi
 
 	wpEnvs=( "${!WORDPRESS_@}" )
 	if [ ! -s wp-config.php ] && [ "${#wpEnvs[@]}" -gt 0 ]; then

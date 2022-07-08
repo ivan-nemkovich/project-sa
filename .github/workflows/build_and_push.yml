@@ -51,6 +51,7 @@ jobs:
           helm package wp_project --version=${{ steps.tag.outputs.tag }} --app-version=${{ steps.tag.outputs.tag }}
           cd ..
           helm repo index --url https://ivan-nemkovich.github.io/project-sa/ --merge index.yaml .
+          sed -i 's/targetRevision:.*/targetRevision: ${{ steps.tag.outputs.tag }}/' argocd-apps/templates/wordpress.yml
 
       - name: Commit and push changes
         run: |
