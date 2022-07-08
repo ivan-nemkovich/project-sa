@@ -2,8 +2,18 @@ apiVersion: v1
 entries:
   wp_project:
   - apiVersion: v2
+    appVersion: "6.0"
+    created: "2022-07-08T06:53:47.57197017Z"
+    description: A Helm chart for Kubernetes
+    digest: 25ac116fabbe5ca059ee5e0513090f56318baf1249b6c6a37ae4805becd2e8be
+    name: wp_project
+    type: application
+    urls:
+    - https://ivan-nemkovich.github.io/project-sa/chart/wp_project-6.0.tgz
+    version: "6.0"
+  - apiVersion: v2
     appVersion: 5.9.2
-    created: "2022-07-07T20:30:04.140555359Z"
+    created: "2022-07-08T06:53:47.570771971Z"
     description: A Helm chart for Kubernetes
     digest: 5829b3925c508f761ab25d6f20ddbd8a901437bee2f185890490b2edbf7e725c
     name: wp_project
@@ -13,7 +23,7 @@ entries:
     version: 5.9.2
   - apiVersion: v2
     appVersion: 0.5.9.3
-    created: "2022-07-07T20:30:04.14256735Z"
+    created: "2022-07-08T06:53:47.57162307Z"
     description: A Helm chart for Kubernetes
     digest: 50dd2c8ecd8369f5fb3c16435539d050dbad66bc801e3150f3b8de686ad45952
     name: wp_project
@@ -23,7 +33,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 0.5.9.3
-    created: "2022-07-07T20:30:04.142145852Z"
+    created: "2022-07-08T06:53:47.57125447Z"
     description: A Helm chart for Kubernetes
     digest: 1d9ab1a6e5575a899a883b0cf36d2029c8e3ea7415399468890254ab9774f096
     name: wp_project
@@ -31,4 +41,4 @@ entries:
     urls:
     - https://ivan-nemkovich.github.io/project-sa/chart/wp_project-0.0.1.tgz
     version: 0.0.1
-generated: "2022-07-07T20:30:04.139757962Z"
+generated: "2022-07-08T06:53:47.570149271Z"
