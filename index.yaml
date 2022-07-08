@@ -3,9 +3,9 @@ entries:
   wp_project:
   - apiVersion: v2
     appVersion: v6.0
-    created: "2022-07-08T17:50:17.328053955Z"
+    created: "2022-07-08T18:19:09.748468512Z"
     description: A Helm chart for Kubernetes
-    digest: ab4630db613cd79c4a0c14afed8ff90aa9e8ec4eabb3c6960e9ab2b1c2ad2c9f
+    digest: b5e30259a68f371ff642da203549006ff6e57fbecae91e9013cb5838ef32c9e7
     name: wp_project
     type: application
     urls:
@@ -13,7 +13,7 @@ entries:
     version: v6.0
   - apiVersion: v2
     appVersion: v5.9.3
-    created: "2022-07-08T18:05:14.760612602Z"
+    created: "2022-07-08T18:19:09.748115113Z"
     description: A Helm chart for Kubernetes
     digest: d475ce3c1509db4b3c932ff6a82448c6d94bbf423b70b0e8c3456e5cf113d7ba
     name: wp_project
@@ -23,7 +23,7 @@ entries:
     version: v5.9.3
   - apiVersion: v2
     appVersion: 5.9.2
-    created: "2022-07-08T18:05:14.758561151Z"
+    created: "2022-07-08T18:19:09.74619662Z"
     description: A Helm chart for Kubernetes
     digest: 5829b3925c508f761ab25d6f20ddbd8a901437bee2f185890490b2edbf7e725c
     name: wp_project
@@ -33,7 +33,7 @@ entries:
     version: 5.9.2
   - apiVersion: v2
     appVersion: v5.9.2
-    created: "2022-07-08T18:05:14.76012079Z"
+    created: "2022-07-08T18:19:09.747749715Z"
     description: A Helm chart for Kubernetes
     digest: 3a686b3de3f9b001ccb81b41e33c650f4dabbf930cec1707198d0b0cef0c6fb7
     name: wp_project
@@ -43,7 +43,7 @@ entries:
     version: v5.9.2
   - apiVersion: v2
     appVersion: 0.5.9.3
-    created: "2022-07-08T18:05:14.75932077Z"
+    created: "2022-07-08T18:19:09.747354616Z"
     description: A Helm chart for Kubernetes
     digest: 50dd2c8ecd8369f5fb3c16435539d050dbad66bc801e3150f3b8de686ad45952
     name: wp_project
@@ -53,7 +53,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 0.5.9.3
-    created: "2022-07-08T18:05:14.75893956Z"
+    created: "2022-07-08T18:19:09.746944617Z"
     description: A Helm chart for Kubernetes
     digest: 1d9ab1a6e5575a899a883b0cf36d2029c8e3ea7415399468890254ab9774f096
     name: wp_project
@@ -61,4 +61,4 @@ entries:
     urls:
     - https://ivan-nemkovich.github.io/project-sa/chart/wp_project-0.0.1.tgz
     version: 0.0.1
-generated: "2022-07-08T18:05:14.757984037Z"
+generated: "2022-07-08T18:19:09.745414023Z"
