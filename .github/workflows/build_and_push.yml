@@ -14,9 +14,9 @@ jobs:
       packages: write
       contents: read
     steps:
-      - name: Get tag
-        id: tag
-        uses: dawidd6/action-get-tag@v1
+      #- name: Get tag
+      #  id: tag
+      #  uses: dawidd6/action-get-tag@v1
        # with:
         # Optionally strip `v` prefix
         #  strip_v: true
