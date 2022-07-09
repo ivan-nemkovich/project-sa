@@ -46,7 +46,7 @@ jobs:
         id: validation
         uses: makocchi-git/actions-k8s-manifests-validate-kubeval@v1.0.1
         with:
-          files: chart/wp_project/templates/deployment.yaml
+          files: argocd-apps/templates/wordpress.yml
       
       - name: Send GitHub Action trigger data to Slack workflow
         if: always()
