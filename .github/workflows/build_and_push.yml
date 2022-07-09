@@ -66,13 +66,13 @@ jobs:
         with:
           payload: |
             {
-              "text": "GitHub Action validation result: ${{ job.steps.validation.conclusion }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
+              "text": "GitHub Action validation result: ${{ job.steps.validation.outcome }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
               "blocks": [
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "GitHub Action validation result: ${{ job.steps.validation.conclusion }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                    "text": "GitHub Action validation result: ${{ job.steps.validation.outcome }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
                   }
                 }
               ]
