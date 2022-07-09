@@ -42,24 +42,14 @@ jobs:
           push: true
           tags: ghcr.io/ivan-nemkovich/wp_project:latest,ghcr.io/ivan-nemkovich/wp_project:${{ steps.tag.outputs.tag }} 
 
-      - name: Helm tool installer
-        uses: Azure/setup-helm@v3
-      
-      - name: Helm Package
-        run: |
-          cd chart
-          helm package wp_project --version=${{ steps.tag.outputs.tag }} --app-version=${{ steps.tag.outputs.tag }}
-          cd ..
-          helm repo index --url https://ivan-nemkovich.github.io/project-sa/ --merge index.yaml .
-          sed -i 's/targetRevision:.*/targetRevision: ${{ steps.tag.outputs.tag }}/' argocd-apps/templates/wordpress.yml
-
       - name: validate_manifest
         id: validation
         uses: makocchi-git/actions-k8s-manifests-validate-kubeval@v1.0.1
         with:
-          files: chart/wp_project/templates/
+          files: chart/wp_project/templates/deployment.yaml
       
       - name: Send GitHub Action trigger data to Slack workflow
+        if: always()
         id: slack
         uses: slackapi/slack-github-action@v1.19.0
         with:
@@ -78,6 +68,17 @@ jobs:
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Helm tool installer
+        uses: Azure/setup-helm@v3
+      
+      - name: Helm Package
+        run: |
+          cd chart
+          helm package wp_project --version=${{ steps.tag.outputs.tag }} --app-version=${{ steps.tag.outputs.tag }}
+          cd ..
+          helm repo index --url https://ivan-nemkovich.github.io/project-sa/ --merge index.yaml .
+          sed -i 's/targetRevision:.*/targetRevision: ${{ steps.tag.outputs.tag }}/' argocd-apps/templates/wordpress.yml
 
       - name: Commit and push changes
         run: |
