@@ -1,7 +1,8 @@
 name: Build and Publish image
 
 on:
-  push:    tags:
+  push:    
+    tags:
       - v**
 jobs:
   push_to_registries:
