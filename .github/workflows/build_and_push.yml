@@ -2,7 +2,7 @@ name: Build and Publish image
 
 on:
   push:
-    brances:
+    branches:
       - main
     tags:
       - v**
